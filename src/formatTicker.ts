@@ -30,4 +30,4 @@ Close:          ${monify(ticker.close_24h)}\
 **Updated**: \`${getNow('UTC', 0)}\`   \`${getNow()}\`   \`${getNow('PST', -6)}\`
 **Source**: ${ticker.url}`;
     return formatted;
-}
+};

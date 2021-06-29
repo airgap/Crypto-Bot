@@ -1,19 +1,19 @@
+import * as fs from 'fs';
 import {Client, TextChannel, VoiceChannel} from 'discord.js';
 import {CryptoMap} from "./CryptoMap";
 import {pollTickers} from "./pollTickers";
 import {pollStats} from "./pollStats";
 import {sourceMaps} from "./sourceMaps";
-import {discordToken} from "./discordToken";
+import Timeout = NodeJS.Timeout;
 
 const client = new Client();
+
 export let moonedChannel: VoiceChannel, updatedChannel: VoiceChannel;
-
-
 
 export const maps: CryptoMap[] = [];
 
-let tickerInterval: number,
-    statInterval: number;
+let tickerInterval: Timeout,
+    statInterval: Timeout;
 
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -37,8 +37,4 @@ client.on('interaction', async interaction => {
     }
 });
 
-client.login(discordToken);
-
-
-
-
+client.login(fs.readFileSync(`/discordToken.txt`, 'utf8').trim());
