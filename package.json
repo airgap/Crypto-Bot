@@ -1,7 +1,7 @@
 {
-  "name": "crypto-bitch",
+  "name": "crypto-bot",
   "version": "0.0.0",
-  "description": "i'm crypto bitch",
+  "description": "i'm crypto bot",
   "main": "index.js",
   "scripts": {
     "start-bg": "pm2 start dist/index.js",
