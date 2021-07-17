@@ -5,6 +5,7 @@ import {pollTickers} from "./pollTickers";
 import {pollStats} from "./pollStats";
 import {sourceMaps} from "./sourceMaps";
 import Timeout = NodeJS.Timeout;
+import {pollCharts} from "./pollCharts";
 
 const client = new Client();
 
@@ -22,10 +23,12 @@ client.on('ready', async () => {
         stat: <VoiceChannel>await client.channels.fetch(source.stat),
         ticker: <TextChannel>await client.channels.fetch(source.ticker)
     }))));
+    //console.log('maps', maps);
     moonedChannel = <VoiceChannel>await client.channels.fetch('859171065342328853');
     updatedChannel = <VoiceChannel>await client.channels.fetch('859152308825882664');
-    pollTickers();
-    pollStats();
+    //pollTickers();
+    //pollStats();
+    pollCharts(client);
     tickerInterval = setInterval(pollTickers, 5 * 1000);
     statInterval = setInterval(pollStats, 10 * 60 * 1000);
 });

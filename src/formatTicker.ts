@@ -28,6 +28,7 @@ Close:          ${monify(ticker.close_24h)}\
 \\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_\\_
 
 **Updated**: \`${getNow('UTC', 0)}\`   \`${getNow()}\`   \`${getNow('PST', -6)}\`
-**Source**: ${ticker.url}`;
+**Sauron Wave Graph**: https://sauron.coooo.in/wave/#s:${ticker.symbol},p:day,z:0`;
     return formatted;
 };
+//**Source**: ${ticker.url}
